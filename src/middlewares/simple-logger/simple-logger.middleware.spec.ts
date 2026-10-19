@@ -1,4 +1,4 @@
-import { SimpleLoggerMiddleware } from './simple-logger.middleware';
+import { SimpleLoggerMiddleware } from './simple-logger.middleware.js';
 
 describe('SimpleLoggerMiddleware', () => {
   it('should be defined', () => {

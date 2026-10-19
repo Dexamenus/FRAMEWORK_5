@@ -16,7 +16,7 @@ export class BooksController {
     @Get(':id')
     findbyId(@Param('id') id: string) {
         // aksinya via service
-        return this.booksService.findById(parseInt(id));
+        return this.booksService.findById(id);
     }
 
     @Post()
@@ -27,12 +27,12 @@ export class BooksController {
     @Patch(':id')
     update(@Param('id') id: string, @Body() updateBooksDto: UpdateBooksDto) {
         // kirim aksi update ke service
-        return this.booksService.update(parseInt(id), updateBooksDto as any);
+        return this.booksService.update(id, updateBooksDto);
     }
     @Delete(':id')
     remove(@Param('id') id: string) {
         // kirim aksi delete ke service
-        return this.booksService.delete(parseInt(id));
+        return this.booksService.delete(id);
     }
 }
 
