@@ -8,7 +8,13 @@ import { AuthModule } from './auth/auth.module.js';
 import { SimpleLoggerMiddleware } from './middlewares/simple-logger/simple-logger.middleware.js';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { UsersModule } from './users/users.module.js';
+import { OrdersModule } from './orders/orders.module.js';
+import { CustomersModule } from './customers/customers.module.js';
+import { PublishersModule } from './publishers/publishers.module.js';
+import { AuthorsModule } from './authors/authors.module.js';
 import Joi from 'joi';
+
 
 @Module({
   imports: [
@@ -44,6 +50,16 @@ import Joi from 'joi';
         synchronize: configService.get<string>('NODE_ENV') === 'development',
       }),
     }),
+
+    UsersModule,
+
+    OrdersModule,
+
+    CustomersModule,
+
+    PublishersModule,
+
+    AuthorsModule,
   ],
   controllers: [AppController],
   providers: [AppService],
