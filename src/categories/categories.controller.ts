@@ -16,22 +16,22 @@ export class CategoriesController {
         @Get(':id')
         findbyId(@Param('id') id: string) {
             // aksinya via service
-            return this.categoriesService.findById(parseInt(id));
+            return this.categoriesService.findById(id);
         }
     
         @Post()
         create(@Body() createCategoriesDto: CreateCategoriesDto) {
             // kirim aksi simpan ke service
-            return this.categoriesService.create(createCategoriesDto as any);
+            return this.categoriesService.create(createCategoriesDto);
         }
         @Patch(':id')
         update(@Param('id') id: string, @Body() updateCategoriesDto: UpdateCategoriesDto) {
             // kirim aksi update ke service
-            return this.categoriesService.update(parseInt(id), updateCategoriesDto as any);
+            return this.categoriesService.update(id, updateCategoriesDto);
         }
         @Delete(':id')
         remove(@Param('id') id: string) {
             // kirim aksi delete ke service
-            return this.categoriesService.delete(parseInt(id));
+            return this.categoriesService.delete(id);
         }
 }

@@ -1,6 +1,5 @@
-import { Column, CreateDateColumn, Entity, JoinColumn, OneToMany, OneToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+import { Column, CreateDateColumn, Entity, JoinColumn, OneToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 import { Profile } from "./profile_entity.js";
-import { Order } from "../../orders/entities/order_entity.js";
 
 @Entity('users')
 export class User {
@@ -20,8 +19,6 @@ export class User {
     @JoinColumn({ name: 'profile_id' })
     profile: Profile;
 
-    @OneToMany(() => Order, (order) => order.user)
-    order:Order[];
 
     @CreateDateColumn({ name: 'created_at' })
     createdAt: Date;
